@@ -11,8 +11,8 @@ class CustomerList(admin.ModelAdmin):
 
 
 class ServiceList(admin.ModelAdmin):
-    list_display = ( 'cust_name', 'service_category', 'setup_time')
-    list_filter = ( 'cust_name', 'setup_time')
+    list_display = ( 'project_name', 'project_number', 'cust_name')
+    list_filter = ( 'project_name', 'project_number')
     search_fields = ('cust_name', )
     ordering = ['cust_name']
 

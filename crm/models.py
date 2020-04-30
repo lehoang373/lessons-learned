@@ -30,20 +30,21 @@ class Customer(models.Model):
     def __str__(self):
         return str(self.cust_name)
 
-
 class Service(models.Model):
-    cust_name = models.ForeignKey(Customer, on_delete=models.CASCADE, related_name='services')
-    service_category = models.CharField(max_length=100)
+
+    project_name = models.CharField(max_length=50, default='DEFAULT VALUE')
+    project_number = models.CharField(max_length=10, default='DEFAULT VALUE')
+    client = models.CharField(max_length=30, default='DEFAULT VALUE')
+    project_location = models.CharField(max_length=100, default='DEFAULT VALUE')
     description = models.TextField()
-    location = models.CharField(max_length=200)
-    setup_time = models.DateTimeField(
-        default=timezone.now)
-    cleanup_time = models.DateTimeField(
-        default=timezone.now)
-    service_charge = models.DecimalField(max_digits=10, decimal_places=2)
+    division = models.CharField(max_length=20, default='DEFAULT VALUE')
+    market_sector = models.CharField(max_length=40, default='DEFAULT VALUE')
+    discipline = models.CharField(max_length=20, default='DEFAULT VALUE')
+    cust_name = models.ForeignKey(Customer, on_delete=models.CASCADE, related_name='services')
+    link_file = models.CharField(max_length=50, default='DEFAULT VALUE')
     created_date = models.DateTimeField(
         default=timezone.now)
-    updated_date = models.DateTimeField(auto_now_add=True)
+    updated_date = models.DateTimeField(default=timezone.now)
 
     def created(self):
         self.created_date = timezone.now()

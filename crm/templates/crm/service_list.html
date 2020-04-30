@@ -3,7 +3,7 @@
     <html>
     <head>
         <meta charset="UTF-8">
-        <title>Maverick Food service</title>
+        <title>Lessons Learned</title>
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
 
     </head>
@@ -19,39 +19,45 @@
                 <div class="panel panel-primary">
                     <div class="panel-heading">Welcome!</div>
                     <div class="panel-body">
-                        Maverick Food services, Ingredients For Your Success!.
+                        Schemmers Lessons Learned!.
                     </div>
                 </div>
             </div>
         </div>
     </div>
     <div class="row">
-        <h2 style="padding-left: 15Px">Services Information</h2>
+        <h2 style="padding-left: 15Px">Lessons Learned</h2>
     </div>
     <div>
         <table class="table table-striped table-bordered table-hover">
             <thead>
             <tr class="bg-info">
-                <th>Customer</th>
-                <th>Service Category</th>
+                <th>Project Name</th>
+                <th>Project Number</th>
+                <th>Client</th>
+                <th>Project Location</th>
                 <th>Description</th>
-                <th>Location</th>
-                <th>Setup Time</th>
-                <th>Cleanup Time</th>
-                <th>Service Charge</th>
+                <th>Division</th>
+                <th>Market Sector</th>
+                <th>Discipline</th>
+                <th>Author</th>
+                <th>Link File</th>
                 <th colspan="3">Actions</th>
             </tr>
             </thead>
             <tbody>
             {% for service in services %}
                 <tr>
+                    <td>{{ service.project_name }}</td>
+                    <td>{{ service.project_number }}</td>
+                     <td>{{ service.client }}</td>
+                    <td>{{ service.project_location }}</td>
+                    <td>{{ service.description }}</td>
+                    <td>{{ service.division }}</td>
+                     <td>{{ service.market_sector }}</td>
+                    <td>{{ service.discipline }}</td>
                     <td>{{ service.cust_name }}</td>
-                    <td>{{ service.service_category }}</td>
-                     <td>{{ service.description }}</td>
-                    <td>{{ service.location }}</td>
-                    <td>{{ service.setup_time }}</td>
-                    <td>{{ service.cleanup_time }}</td>
-                    <td>{{ service.service_charge }}</td>
+                    <td>{{ service.link_file }}</td>
                     <td><a href="{% url 'crm:service_edit' pk=service.pk %}"
                            class="btn btn-warning">Edit</a></td>
 
@@ -66,7 +72,7 @@
         </table>
      <div class="row">
          <a href="{% url 'crm:service_new' %}" class="row"><span
-                    class="btn btn-primary">Add Service</span></a>
+                    class="btn btn-primary">Add Lesson</span></a>
      </div>
 
     </div>
