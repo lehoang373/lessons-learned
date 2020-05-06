@@ -1,0 +1,51 @@
+{% extends 'll/base.html' %}
+{% load staticfiles %}
+{% block content %}
+   <body>
+    <html>
+            {% if user.is_authenticated %}
+                <div class="page-container">
+
+                    <h2 class="top-menu">Hello</h2>
+                    <p>Please choose from below options.</p>
+
+                </div>
+            {% endif %}
+            <div class="content container">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="links">
+                            <!-- Example row of columns -->
+                            <div class="row">
+                                <div class="col-md-3">
+                                    <div class="thumbnail">
+                                        <img src="{% static "images/filter.jpeg" %}" alt="filter"/>
+                                        <div class="caption">
+                                            <h2>Search Lessons</h2>
+                                            <p>Search for lessons</p>
+                                            <p><a class="btn btn-primary" href="{% url 'll:search' %}"
+                                                  role="button">View
+                                                details &raquo;</a></p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-3">
+                                    <div class="thumbnail">
+                                        <img src="{% static "images/lessons-learned.jpeg" %}" alt="lessons-learned"/>
+                                        <div class="caption">
+                                            <h2>Lessons Learned</h2>
+                                            <p>Lessons Learned</p>
+                                            <p><a class="btn btn-primary" href="{% url 'll:lesson_list' %}"
+                                                  role="button">View
+                                                details &raquo;</a></p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+    </body>
+    </html>
+{% endblock %}

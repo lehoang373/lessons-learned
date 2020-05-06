@@ -1,0 +1,93 @@
+{% extends 'll/base.html' %}
+
+{% load widget_tweaks %}
+
+{% block content %}
+  <form method="get">
+    <div class="well">
+      <h4 style="margin-top: 0">Filter</h4>
+      <div class="row">
+        <div class="form-group col-sm-4 col-md-3">
+          {{ filter.form.project_name.label_tag }}
+          {% render_field filter.form.project_name class="form-control" %}
+        </div>
+
+        <div class="form-group col-sm-4 col-md-3">
+          {{ filter.form.project_number.label_tag }}
+          {% render_field filter.form.project_number class="form-control" %}
+        </div>
+
+        <div class="form-group col-sm-4 col-md-3">
+          {{ filter.form.client.label_tag }}
+          {% render_field filter.form.client class="form-control" %}
+        </div>
+
+        <div class="form-group col-sm-4 col-md-3">
+          {{ filter.form.project_location.label_tag }}
+          {% render_field filter.form.project_location class="form-control" %}
+        </div>
+
+         <div class="form-group col-sm-4 col-md-3">
+          {{ filter.form.division.label_tag }}
+          {% render_field filter.form.division class="form-control" %}
+        </div>
+
+         <div class="form-group col-sm-4 col-md-3">
+          {{ filter.form.market_sector.label_tag }}
+          {% render_field filter.form.market_sector class="form-control" %}
+        </div>
+
+        <div class="form-group col-sm-4 col-md-3">
+          {{ filter.form.discipline.label_tag }}
+          {% render_field filter.form.discipline class="form-control" %}
+        </div>
+
+        <div class="form-group col-sm-4 col-md-3">
+          {{ filter.form.author.label_tag }}
+          {% render_field filter.form.author class="form-control" %}
+        </div>
+
+      </div>
+      <button type="submit" class="btn btn-primary">
+        <span class="glyphicon glyphicon-search"></span> Search
+      </button>
+    </div>
+  </form>
+
+  <table class="table table-bordered">
+    <thead>
+      <tr>
+        <th>Project Name</th>
+        <th>Project Number</th>
+        <th>Client</th>
+        <th>Project Location</th>
+        <th>Description</th>
+        <th>Division</th>
+        <th>Market Sector</th>
+        <th>Discipline</th>
+        <th>Author</th>
+        <th>Link File</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for lesson in filter.qs %}
+        <tr>
+          <td>{{ lesson.project_name }}</td>
+          <td>{{ lesson.project_number }}</td>
+          <td>{{ lesson.client }}</td>
+          <td>{{ lesson.project_location }}</td>
+          <td>{{ lesson.description }}</td>
+          <td>{{ lesson.division }}</td>
+          <td>{{ lesson.market_sector }}</td>
+          <td>{{ lesson.discipline }}</td>
+          <td>{{ lesson.author }}</td>
+          <td>{{ lesson.link_file }}</td>
+        </tr>
+      {% empty %}
+        <tr>
+          <td colspan="5">No data</td>
+        </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+{% endblock %}

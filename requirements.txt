@@ -1,3 +1,4 @@
 django==2.2.10
 Django-crispy-forms
-django-mathfilters
+django-filter
+django-widget-tweaks
