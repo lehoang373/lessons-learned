@@ -4,7 +4,7 @@ from .models import Lesson
 
 
 class LessonFilter(django_filters.FilterSet):
-    project_name = django_filters.CharFilter(lookup_expr='icontains')
+    project__name = django_filters.CharFilter(lookup_expr='icontains')
     project_number = django_filters.CharFilter(lookup_expr='icontains')
     client = django_filters.CharFilter(lookup_expr='icontains')
     project_location = django_filters.CharFilter(lookup_expr='icontains')
